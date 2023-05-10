@@ -1,6 +1,7 @@
 const asyncHandler = require("express-async-handler")
 const User = require("../Models/userModel")
 const bcrypt = require("bcrypt")
+
 //@desc Register a user
 //@route GET /api/users/register
 //@access public
@@ -58,8 +59,10 @@ const loginUser = asyncHandler(async (req, res) => {
     }
 })
 
-// const loginUser = asyncHandler(async (req, res) => {
-//     res.status(200).json({message: "Login"})
-// })
+const view = asyncHandler(async (req, res) => {
+    const user = await User.find({})
+    res.status(200).json({user})
+    // res.status(200).json({message: 'Hi'})
+})
 
-module.exports = {registerUser, loginUser}
+module.exports = {registerUser, loginUser, view}
