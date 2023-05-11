@@ -9,6 +9,7 @@ const port = process.env.PORT || 1000
 
 app.use(express.json())
 app.use("/api/users", require("./Routes/userRoutes"))
+app.use("/api/insured", require("./Routes/insuredRoutes"))
 app.use(errorHandler)
 
 app.listen(port, () =>{

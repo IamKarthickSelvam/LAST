@@ -10,13 +10,9 @@ const userSchema = mongoose.Schema({
         type: String,
         required: [true, "Please add the insured name"]
     },
-    email: {
+    country: {
         type: String,
-        required: [true, "Please add the email address"]
-    },
-    phone: {
-        type: String,
-        required: [true, "Please add the contact phone number"]
+        required: [true, "Please add the country details"]
     },
     insurancetype: {
         type: String,
