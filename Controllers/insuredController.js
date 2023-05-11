@@ -1,5 +1,5 @@
 const asyncHandler = require("express-async-handler")
-const Insured = require("../Models/userModel")
+const Insured = require("../Models/insuredModel")
 
 //@desc get all Insureds
 //@route GET /api/insured
