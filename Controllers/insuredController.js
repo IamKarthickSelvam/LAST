@@ -5,7 +5,7 @@ const Insured = require("../Models/insuredModel")
 //@route GET /api/insured
 //@access private
 const getInsureds = asyncHandler(async (req, res) => {
-    const insured = await Insured.find({ user_id: req.user_id })
+    const insured = await Insured.find({ user_id: req.user.id })
     res.status(200).json({insured})
 })
 
@@ -13,8 +13,8 @@ const getInsureds = asyncHandler(async (req, res) => {
 //@route POST /api/insured
 //@access private
 const createInsured = asyncHandler(async (req, res) => {
-    const {name, email, phone, type} = req.body
-    if (!name || !email || !phone || !type ){
+    const {name, country, type} = req.body
+    if (!name || !country || !type ){
         res.status(400)
         throw new Error("All fields are mandatory!")
     }
@@ -22,7 +22,7 @@ const createInsured = asyncHandler(async (req, res) => {
         name,
         country,
         type,
-        user_id: req.user_id
+        user_id: req.user.id
     })
     res.status(200).json({insured})
 })

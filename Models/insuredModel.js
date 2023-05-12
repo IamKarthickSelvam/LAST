@@ -14,7 +14,7 @@ const userSchema = mongoose.Schema({
         type: String,
         required: [true, "Please add the country details"]
     },
-    insurancetype: {
+    type: {
         type: String,
         required: [true, "Please add the Insurance type"]
     }
