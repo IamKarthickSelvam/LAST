@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const userSchema = mongoose.Schema({
     user_id: {
@@ -8,11 +8,11 @@ const userSchema = mongoose.Schema({
     },
     name: {
         type: String,
-        required: [true, "Please add the insured name"]
+        required: [true, "Please add the Insured name"]
     },
     country: {
         type: String,
-        required: [true, "Please add the country details"]
+        required: [true, "Please add the Country of the Insured"]
     },
     type: {
         type: String,
@@ -22,6 +22,6 @@ const userSchema = mongoose.Schema({
     {
         timestamps: true,
     }
-)
+);
 
-module.exports = mongoose.model("Insured", userSchema)
+module.exports = mongoose.model("Insured", userSchema);

@@ -7,7 +7,7 @@ const Insured = require("../Models/insuredModel");
 const getInsureds = asyncHandler(async (req, res) => {
     const insured = await Insured.find({ user_id: req.user.id });
     res.status(200).json({ insured });
-})
+});
 
 //@desc create new Insured
 //@route POST /api/insured
@@ -17,7 +17,7 @@ const createInsured = asyncHandler(async (req, res) => {
     if (!name || !country || !type) {
         res.status(400);
         throw new Error("All fields are mandatory!");
-    };
+    }
     const insured = await Insured.create({
         name,
         country,
@@ -25,42 +25,42 @@ const createInsured = asyncHandler(async (req, res) => {
         user_id: req.user.id
     });
     res.status(200).json({ insured });
-})
+});
 
 //@desc Get a Insured
 //@route POST /api/insured/:id
 //@access private
 const getInsured = asyncHandler(async (req, res) => {
-    const insured = await Insured.findById(req.params.id)
+    const insured = await Insured.findById(req.params.id);
     if (!insured) {
-        res.status(401)
-        throw new Error("Contact not found")
+        res.status(401);
+        throw new Error("Insured not found");
     }
-    res.status(200).json({ insured })
-})
+    res.status(200).json({ insured });
+});
 
 //@desc update Insured
 //@route PUT /api/insured/:id
 //@access private
 const updateInsured = asyncHandler(async (req, res) => {
-    const insured = await Insured.findById(req.params.id)
+    const insured = await Insured.findById(req.params.id);
     if (!insured) {
-        res.status(404)
-        throw new Error("Insured not found")
+        res.status(404);
+        throw new Error("Insured not found");
     }
 
     if (insured.user_id != req.user.id) {
-        res.status(403)
-        throw new Error("User doesn't have the permission to update this Insured")
+        res.status(403);
+        throw new Error("User doesn't have the permission to update this Insured");
     }
 
     const updatedInsured = await Insured.findByIdAndUpdate(
         req.params.id,
         req.body,
         { new: true }
-    )
-    res.status(200).json({ updatedInsured })
-})
+    );
+    res.status(200).json({ updatedInsured });
+});
 
 //@desc Delete insured
 //@route DELETE /api/insured/:id
@@ -85,4 +85,4 @@ module.exports = {
     getInsured,
     updateInsured,
     deleteInsured
-}
+};

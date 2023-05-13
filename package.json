@@ -16,6 +16,7 @@
   "description": "Express-Last application",
   "main": "server.js",
   "devDependencies": {
+    "eslint": "^8.40.0",
     "nodemon": "^2.0.22"
   },
   "author": "Karthick Selvam",

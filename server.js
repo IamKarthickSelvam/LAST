@@ -1,17 +1,17 @@
-const express = require("express")
-const connectDb = require("./Config/dbConnection")
-const errorHandler = require("./Middleware/errorHandler")
-const dotenv = require("dotenv").config()
+const express = require("express");
+const connectDb = require("./Config/dbConnection");
+const errorHandler = require("./Middleware/errorHandler");
+require("dotenv").config();
 
-connectDb()
-const app = express()
-const port = process.env.PORT || 1000
+connectDb();
+const app = express();
+const port = process.env.PORT || 1000;
 
-app.use(express.json())
-app.use("/api/users", require("./Routes/userRoutes"))
-app.use("/api/insured", require("./Routes/insuredRoutes"))
-app.use(errorHandler)
+app.use(express.json());
+app.use("/api/users", require("./Routes/userRoutes"));
+app.use("/api/insured", require("./Routes/insuredRoutes"));
+app.use(errorHandler);
 
 app.listen(port, () => {
-    console.log(`Server running on port: ${port}`)
-})
+    console.log(`Server running on port: ${port}`);
+});
