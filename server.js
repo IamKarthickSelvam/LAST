@@ -1,7 +1,7 @@
 const express = require("express")
 const connectDb = require("./Config/dbConnection")
 const errorHandler = require("./Middleware/errorHandler")
-const dotenv = require("dotenv").config() 
+const dotenv = require("dotenv").config()
 
 connectDb()
 const app = express()
@@ -12,6 +12,6 @@ app.use("/api/users", require("./Routes/userRoutes"))
 app.use("/api/insured", require("./Routes/insuredRoutes"))
 app.use(errorHandler)
 
-app.listen(port, () =>{
+app.listen(port, () => {
     console.log(`Server running on port: ${port}`)
 })
